@@ -26,3 +26,8 @@ plt.xlim((-1, 3))
 plt.ylim((-1, 3))
 plt.title("2D picture")
 plt.show()
+
+# https://realpython.com/python-linear-algebra/
+# https://realpython.com/python-scipy-linalg/
+# https://realpython.com/python-scipy-linalg/#working-with-vectors-and-matrices-using-numpy
+# https://realpython.com/python-linear-algebra/
