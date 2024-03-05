@@ -38,8 +38,8 @@ def validate(date, month, year):
 # year = input("Please enter a year")
 
 
-date = 27
-month = 2
+date = 5
+month = 3
 year = 2024
 
 isDateValid = validate(date, month, year)
