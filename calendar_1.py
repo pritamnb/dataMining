@@ -1,16 +1,26 @@
+# To accept a valid month
 
-# while True:
-# 	try:
-# 		mm = int(input("Enter a month: "))
-# 	except ValueError:
-# 		print("Sorry, I didn't understand that.")
-# 		continue
-# 	if mm < 1 or mm > 12:
-# 		print("Invalid Date")
-# 	else:
-# 		break
-
-# yy = int(input("Enter a year: "))
+while True:
+	try:
+		mm = int(input("Enter a month: "))
+	except ValueError:
+		print("Sorry, I didn't understand that.")
+		continue
+	if mm < 1 or mm > 12:
+		print("Invalid Date!")
+	else:
+		break
+# To accept a valid year
+while True:
+	try:
+		yy = int(input("Enter a year: "))
+	except ValueError:
+		print("Sorry, I didn't understand that.")
+		continue
+	if yy < 1 or yy > 3000:
+		print("Invalid year!")
+	else:
+		break
 
 def calendar(mm,yy):
 	mm = int(mm)
@@ -94,20 +104,25 @@ def calendar(mm,yy):
 				print("{:02d}".format(i-day), end =' ')
 				if (i + 1)% 7 == 0:
 					print()
-		
 
-calendar(12,2024)
-calendar(1,2024)
-calendar(2,2024)
-calendar(3,2024)
-calendar(4,2024)
-calendar(5,2024)
-calendar(6,2024)
-calendar(7,2024)
-calendar(8,2024)
-calendar(9,2024)
-calendar(10,2024)
-calendar(11,2024)
+# User input
+calendar(mm,yy)
+
+# For static values uncomment the following code
+
+# calendar(1,2024)
+# calendar(2,2024)
+# calendar(3,2024)
+# calendar(4,2024)
+# calendar(5,2024)
+# calendar(6,2024)
+# calendar(7,2024)
+# calendar(8,2024)
+# calendar(9,2024)
+# calendar(10,2024)
+# calendar(11,2024)
+# calendar(12,2024)
+
 
 
 

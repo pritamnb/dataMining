@@ -1,3 +1,4 @@
+from  leap_year import leapYearCheck
 def iso_day_of_week(date, month, year):
     m = int(month)
     q = int(date)
@@ -9,10 +10,9 @@ def iso_day_of_week(date, month, year):
     j = y // 100
 
     h = (q + ((13 * (m + 1)) // 5) + k + (k // 4) + (j // 4) - (2 * j)) % 7
-    # d = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    d = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    d = [ "Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     isoDay = ((h + 5) % 7) + 1
-    return d[isoDay -1]
+    return d[isoDay]
 
 
 def validate(date, month, year):
@@ -20,30 +20,31 @@ def validate(date, month, year):
         max_day_value = 31
     elif month == 4 or month == 6 or month == 9 or month == 11:
         max_day_value = 30
-    elif year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    # elif year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    # Using a function from leap year
+    elif (leapYearCheck(year)['status'] == True):
         max_day_value = 29
     else:
         max_day_value = 28
 
     if month < 1 or month > 12:
-        return {"status": "Invalid Date", "code": False}
+        return {"message": "Invalid Date", "status": False}
     elif date < 1 or date > max_day_value:
-        return {"status": "Invalid Date", "code": False}
+        return {"message": "Invalid Date", "status": False}
     else:
-        return {"status": "Valid Date", "code": True}
+        return {"message": "Valid Date", "status": True}
 
-
+# For Run time user input please uncomment the following code
 # date = input("Please enter a date")
 # month = input("Please enter a month")
 # year = input("Please enter a year")
 
-
-date = 5
-month = 3
-year = 2024
+# 22/02/2024 - 22nd february 2024
+# date = 22
+# month = 2
+# year = 2024
 
 isDateValid = validate(date, month, year)
-print('isDateValid', isDateValid)
-day = iso_day_of_week(date, month, year) if isDateValid['code'] == True else print(isDateValid['status'])
+print('Is date valid ? ', isDateValid['message'])
+day = iso_day_of_week(date, month, year) if isDateValid['status'] == True else print(isDateValid['message'])
 print('Day is ', day)
-# print(iso_day_of_week(27, 2, 2024))
