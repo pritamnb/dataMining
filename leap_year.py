@@ -10,6 +10,9 @@ def leapYearCheck(year):
             'message' :'A common year!'
         }
 
+# This is for only required function should get called in other files.
+    # leapYearCheck is getting called in day_of_the_week.py
+    # If condition resist the execution of code within main, when leapYearCheck gets called from other file
 if __name__ == "__main__":
     print('Please enter a year !!!')
     yearInput = input()
